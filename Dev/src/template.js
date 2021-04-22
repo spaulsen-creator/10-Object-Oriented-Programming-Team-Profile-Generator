@@ -19,11 +19,23 @@ module.exports = team => {
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/c502137733.js"></script>
     </head>
-    
-    <body>
-        
 
-    
-    
-    `
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 jumbotron mb-3 team-heading">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="team-area col-12 d-flex justify-content-center">
+                    ${generateTeam(team)}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+`;
 }
