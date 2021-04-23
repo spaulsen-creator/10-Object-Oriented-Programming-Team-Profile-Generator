@@ -14,28 +14,29 @@ const askManager = [{
     },
     {
         type: 'imput',
-        name: 'name',
+        name: 'id',
+        message: 'What is your manager id?',
+    },
+    {
+        type: 'imput',
+        name: 'email',
+        message: 'What is your email?',
+    },
+    {
+        type: 'imput',
+        name: 'officeNumber',
+        message: 'What is your office number?',
+    },
+    {
+        type: 'imput',
+        name: 'members',
         message: 'What is the team managers name?',
     },
     {
         type: 'imput',
         name: 'name',
-        message: 'What is the team managers name?',
-    },
-    {
-        type: 'imput',
-        name: 'name',
-        message: 'What is the team managers name?',
-    },
-    {
-        type: 'imput',
-        name: 'name',
-        message: 'What is the team managers name?',
-    },
-    {
-        type: 'imput',
-        name: 'name',
-        message: 'What is the team managers name?',
+        message: 'Select the role of any team member to be added to the directory.',
+        choices: ['Engineer', 'Employee', 'Intern', 'None to add'],
     },
 ];
 
