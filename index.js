@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const template = require('./src/template');
+const generateHTML = require('./src/generateHTML');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
@@ -10,7 +10,7 @@ const teamMembers = [];
 const askManager = [{
         type: 'imput',
         name: 'name',
-        message: 'What is the team managers name?',
+        message: "What is the team manager's name?",
     },
     {
         type: 'imput',
@@ -30,11 +30,6 @@ const askManager = [{
     {
         type: 'imput',
         name: 'members',
-        message: 'What is the team managers name?',
-    },
-    {
-        type: 'imput',
-        name: 'name',
         message: 'Select the role of any team member to be added to the directory.',
         choices: ['Engineer', 'Employee', 'Intern', 'None to add'],
     },
@@ -45,45 +40,48 @@ const askEngineer = () => {
         .prompt([{
             type: 'imput',
             name: 'name',
-            message: 'What is the team managers name?',
+            message: "What is the engineer's name?",
         },
         {
             type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
+            name: 'id',
+            message: 'What is your engineer id?',
         },
         {
             type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
+            name: 'email',
+            message: 'What is your email?',
         },
         {
             type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
+            name: 'github',
+            message: 'What is your GitHub user name?',
         },
         {
             type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
+            name: 'members',
+            message: 'Select the role of any team member to be added to the directory.',
+            choices: ['Engineer', 'Employee', 'Intern', 'None to add'],
         },
-        {
-            type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
-        },
-        {
-            type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
-        },
-        {
-            type: 'imput',
-            name: 'name',
-            message: 'What is the team managers name?',
-        },
+        
     ])
+    then((data) => {
+        teamMembers.push(
+            new Engineer(data.name, data.id, data.email, data.github)
+        );
 
+        if (data.members === "Engineer") {
+            askEngineer();
+        } else if (data.members === "Intern") {
+            askIntern();
+        } else {
+            let data = generateHTML(teamMembers);
+            fs.writeFileSync('team.html', data, 'utf-8');
+
+        }
+    });
+};
+    
 const askIntern = () => {
     inquirer
         .prompt([{
@@ -127,75 +125,25 @@ const askIntern = () => {
             message: 'What is the team managers name?',
         },
     ])
-}
+}   
+then((data) => {
+    teamMembers.push(
+        new Engineer(data.name, data.id, data.email, data.github)
+    );
 
-        // const inquirer = require('inquirer');
-        // const fs = require('fs');
-        // // const path = require('path');
-        // const util = require('util');
-        // // const dist = require('./dist/generateHtml.html');
+    if (data.members === "Engineer") {
+        askEngineer();
+    } else if (data.members === "Intern") {
+        askIntern();
+    } else {
+        let data = generateHTML(teamMembers);
+        fs.writeFileSync('team.html', data, 'utf-8');
 
-        // const writeFileAsync = util.promisify(fs.writeFile);
+    }
+});
 
-        // const promptUser = () => {
-        //     return inquirer.prompt([{
-        //             type: 'input',
-        //             name: 'title',
-        //             message: 'What is the project title?',
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'description',
-        //             message: 'Please provide a description of the project.',
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'install',
-        //             message: 'What command should be used for installation?',
-        //             default: 'npm i',
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'usage',
-        //             message: 'What does the user need to know about using this program?',
-        //         },
-        //         {
-        //             type: 'list',
-        //             name: 'license',
-        //             message: 'What license would you like to use for your project?',
-        //             choices: [
-        //                 'MIT',
-        //                 'Apache2.0',
-        //                 'GPL3.0',
-        //                 'BSD3',
-        //                 'None',
-        //             ]
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'contributors',
-        //             message: 'Were their any contributors on this project?',
-        //         },
-        //         {
 
-        //             type: 'input',
-        //             name: 'tests',
-        //             message: 'What command should be used to run a test?',
-        //             default: 'npm run tests'
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'questions',
-        //             message: 'What is your GitHub username?',
-
-        //         },
-        //         {
-        //             type: 'input',
-        //             name: 'questions2',
-        //             message: 'What is your email address?'
-        //         },
-        //     ]);
-        // };
+        
 
         // const generateHTML = (answers) =>
         //     `<!DOCTYPE html>
