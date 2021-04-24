@@ -1,40 +1,16 @@
-const Employee = require("../lib/employee");
-test('create an employee instance', ()=>{
-    const e = new Employee()
-    expect(typeof(e)).toBe('object')
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
+const Engineer = require("../lib/Engineer");
+ test('Can you retrieve GitHub from constructor',() => {
+    const testGithub = 'githubname'
+    const e = new Engineer('brian', 1, 'brian@gmail.com', testGithub)
+    expect(e.gitHub).toBe(testGithub);
+ });
+ test('getRole() returns Engineer', () =>{
+     const testRole = 'Engineer'
+     const e = new Engineer('brian', 1, 'brian@gmail.com', 'githubname')
+     expect(e.getRole()).toBe(testRole)
+ });
+ test('Get the githubusername vis getHub()', () =>{
+     const testUsername = 'githubname'
+     const e = new Engineer('brian', 1, 'brian@gmail.com', testUsername)
+     expect(e.getGitHub()).toBe(testUsername)
+ });

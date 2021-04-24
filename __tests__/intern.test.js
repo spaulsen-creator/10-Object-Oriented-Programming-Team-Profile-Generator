@@ -1,40 +1,16 @@
-const Employee = require("../lib/employee");
-test('create an employee instance', ()=>{
-    const e = new Employee()
-    expect(typeof(e)).toBe('object')
+const Intern = require("../lib/Intern");
+test('Can you set the school via constructor', () => {
+    const testSchool = 'school'
+    const e = new Intern('amy', 1, 'amy@gmail.com', testSchool)
+    expect(e.school).toBe(testSchool);
 });
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
+test('getRole() returns Intern', () => {
+    const testRole = 'Intern'
+    const e = new Intern('amy', 1, 'amy@mail.com', 'Intern')
+    expect(e.getRole()).toBe(testRole)
 });
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
-});
-test('can set name by constructeor', () => {
-    const name = 'Shawn'
-    const e = new Employee(name)
-    expect(e.name).toBe(name)
+test('Get the school name()', () => {
+    const testSchoolName = 'school'
+    const e = new Intern('amy', 1, 'amy@gmail.com', testSchoolName)
+    expect(e.getSchool()).toBe(testSchoolName)
 });

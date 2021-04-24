@@ -1,8 +1,29 @@
-const generateTeam = team => {
-    const generateManager = manager => {
-        return `<div>HTML ${manager.getName()}</div>`
-    }
-}
+const generateManager = (data) => {
+    return `<div class='container'>
+       <ul class='ul'><li>
+       <div class='col-md-3'>
+       <div class='card cardbody'>
+       <div class='card-header font:'text-white' style='background:blue'>
+            ${data.name}<br>
+            <div class='fas a-mug-hot'>${data.getRole()}</div>
+            </div>
+        <div class='card-body'>
+            <form role='form'>
+            <div class='form-group'>
+            <p><b>Id:</b>${data.id}</p>
+            </div>
+            <div class='form-group'>
+            <p><b>Email:</b> <a href='mailto:${data.email}'>${data.email}</a></p>
+            </div>
+            <div class='form-group'>
+            <p><b>Office Number:</b> ${data.officeNumber}'>${data.officeNumber}</p>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </li>`;
+};
 
 module.exports = team => {
     return `
@@ -38,4 +59,4 @@ module.exports = team => {
     </body>
 </html>
 `;
-}
+}${manager.getName()}
