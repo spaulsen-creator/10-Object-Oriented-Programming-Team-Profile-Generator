@@ -5,7 +5,7 @@ const generateManager = (data) => {
        <div class='card cardbody'>
        <div class='card-header font:'text-white' style='background:blue'>
             ${data.name}<br>
-            <div class='fas a-mug-hot'>${data.getRole()}</div>
+            <div class='fas fa-mug-hot'>${data.getRole()}</div>
             </div>
         <div class='card-body'>
             <form role='form'>
@@ -24,6 +24,62 @@ const generateManager = (data) => {
     </div>
     </li>`;
 };
+
+const generateEngineer = (data) => {
+    return `<div class='container'>
+       <ul class='ul'><li>
+       <div class='col-md-3'>
+       <div class='card cardbody'>
+       <div class='card-header font:'text-white' style='background:blue'>
+            ${data.name}<br>
+            <div class='fas fa-glasses'>${data.getRole()}</div>
+            </div>
+        <div class='card-body'>
+            <form role='form'>
+            <div class='form-group'>
+            <p><b>Id:</b>${data.id}</p>
+            </div>
+            <div class='form-group'>
+            <p><b>Email:</b> <a href='mailto:${data.email}'>${data.email}</a></p>
+            </div>
+            <div class='form-group'>
+            <p><b>GitHub User Name:</b> <a href='https://github.com/${data.github}'>${data.github}</a></p>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </li>`;
+};
+
+const generateIntern = (data) => {
+    return `<div class='container'>
+       <ul class='ul'><li>
+       <div class='col-md-3'>
+       <div class='card cardbody'>
+       <div class='card-header font:'text-white' style='background:blue'>
+            ${data.name}<br>
+            <div class='fas fa-user-graduate'>${data.getRole()}</div>
+            </div>
+        <div class='card-body'>
+            <form role='form'>
+            <div class='form-group'>
+            <p><b>Id:</b>${data.id}</p>
+            </div>
+            <div class='form-group'>
+            <p><b>Email:</b> <a href='mailto:${data.email}'>${data.email}</a></p>
+            </div>
+            <div class='form-group'>
+            <p><b>School:</b> ${data.school}'>${data.school}</p>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </li>`;
+};
+
+
 
 module.exports = team => {
     return `
