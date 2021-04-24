@@ -60,7 +60,7 @@ const askEngineer = () => {
             },
             {
                 type: "input",
-                name: "GitHub",
+                name: "gitHub",
                 message: "What is your GitHub username?",
             },
             {
@@ -72,7 +72,7 @@ const askEngineer = () => {
         ])
         .then((data) => {
             teamMembers.push(
-                new Engineer(data.name, data.id, data.email, data.GitHub)
+                new Engineer(data.name, data.id, data.email, data.gitHub)
             );
             if (data.members === "Engineer") {
                 askEngineer();
