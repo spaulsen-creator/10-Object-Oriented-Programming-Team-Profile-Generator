@@ -26,7 +26,7 @@ test('Can we get name via getName()', () => {
 test('Can we get ID via getID()', () => {
     const testID = 100;
     const e = new Employee('shawn', testID)
-    expect(e.getID()).toBe(testID)
+    expect(e.getId()).toBe(testID)
 });
 test('Can we get Email via getEmail()', () => {
     const testEmail = 'gumbodrums@gmail.com'
