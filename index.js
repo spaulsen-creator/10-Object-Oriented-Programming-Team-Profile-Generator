@@ -37,7 +37,7 @@ const questionsManager = [{
         type: "list",
         name: "members",
         message: "Select the role of any team member to be added to the directory.",
-        choices: ["Engineer", "Intern", "I'm done."],
+        choices: ["Engineer", "Intern", "No more team members to add."],
     },
 ];
 
@@ -67,7 +67,7 @@ const askEngineer = () => {
                 type: "list",
                 name: "members",
                 message: "Which type of team member would you like to add?",
-                choices: ["Engineer", "Intern", "None to add."],
+                choices: ["Engineer", "Intern", "No more team members to add."],
             },
         ])
         .then((data) => {
@@ -111,7 +111,7 @@ const askIntern = () => {
                 type: "list",
                 name: "members",
                 message: "Which type of team member would you like to add?",
-                choices: ["Engineer", "Intern", "None to add."],
+                choices: ["Engineer", "Intern", "No more team members to add."],
             },
         ]).then((data) => {
             teamMembers.push(
