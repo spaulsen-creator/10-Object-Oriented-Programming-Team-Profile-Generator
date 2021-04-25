@@ -13,7 +13,7 @@ const generateManager = (data) => {
             <p><b>Id:</b>${data.id}</p>
             </div>
             <div class='form-group'>
-            <p><b>Email:</b> <a href="mailto:${data.email}"></a></p>
+            <p><b>Email:</b> <a href="mailto:${data.email}">${data.email}</a></p>
             </div>
             <div class='form-group'>
             <p><b>Office Number:</b> ${data.officeNumber}</p>
@@ -26,6 +26,7 @@ const generateManager = (data) => {
 };
 
 const generateEngineer = (data) => {
+    
     return `<div class='container'>
        <ul class='ul'><li>
        <div class='col-md-3'>
@@ -40,10 +41,10 @@ const generateEngineer = (data) => {
             <p><b>Id:</b>${data.id}</p>
             </div>
             <div class='form-group'>
-            <p><b>Email:</b> <a href="mailto:${data.email}"></a></p>
+            <p><b>Email:</b> <a href="mailto:${data.email}">${data.email}</a></p>
             </div>
             <div class='form-group'>
-            <p><b>GitHub User Name:</b> <a href='https://github.com/${data.gitHub}'></a></p>
+            <p><b>GitHub User Name:</b> <a href='https://github.com/${data.getGitHub()}'>${data.getGitHub()}</a></p>
             </div>
             </form>
         </div>
@@ -67,7 +68,7 @@ const generateIntern = (data) => {
             <p><b>Id:</b>${data.id}</p>
             </div>
             <div class='form-group'>
-            <p><b>Email:</b> <a href="mailto:${data.email}"></a></p>
+            <p><b>Email:</b> <a href="mailto:${data.email}">${data.email}</a></p>
             </div>
             <div class='form-group'>
             <p><b>School:</b> ${data.school}</p>
@@ -87,6 +88,8 @@ const generateCards = (data) => {
             let string = generateManager(element);
             htmlString += string;
         } else if (element.getRole() === "Engineer") {
+            console.log("Hello");
+            console.log(element);
             let string = generateEngineer(element);
             htmlString += string;
 

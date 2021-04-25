@@ -71,8 +71,9 @@ const askEngineer = () => {
             },
         ])
         .then((data) => {
+            var engineer = new Engineer(data.name, data.id, data.email, data.gitHub)
             teamMembers.push(
-                new Engineer(data.name, data.id, data.email, data.gitHub)
+                engineer
             );
             if (data.members === "Engineer") {
                 askEngineer();
